@@ -1,0 +1,39 @@
+ fullShoppingList.sortWith(object : Comparator<ShoppingListObject> {
+            override fun compare(o1: ShoppingListObject?, o2: ShoppingListObject?): Int {
+
+                if (o1 != null && o2 != null) {    // Sort by votes
+                    // If the first item has a higher number, move it down
+                    // If the first item has a lower number, move it up
+                    if (o1!!.district < o2!!.district) {
+                        return -1;
+                    } else
+                        if (o1!!.district > o2!!.district) {
+                            return 1;
+                        }
+
+                    if (o1!!.product_name > o2!!.product_name) {
+                        return 1;
+                    } else
+                        if (o1!!.product_name < o2!!.product_name) {
+                            return -1;
+                        }
+
+                    if (o1!!.shop_number < o2!!.shop_number) {
+                        return -1;
+                    } else
+                        if (o1!!.shop_number > o2!!.shop_number) {
+                            return 1;
+                        } else {
+                            return -1
+                        }
+
+                    // If the votes number is the same between both items, sort alphabetically
+                    // If the first item comes first in the alphabet, move it up
+                    // Otherwise move it down
+
+                } else {
+                    return -1
+                }
+
+            }
+        })
